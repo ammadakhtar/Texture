@@ -19,8 +19,8 @@ class HomeViewController: ASDKViewController<BaseNode> {
         super.init(node: BaseNode())
         homeNode = HomeNode()
         self.node.addSubnode(homeNode)
-        node.layoutSpecBlock = { (node, constrainedSize) in
-            return ASInsetLayoutSpec(insets: UIEdgeInsets.zero, child: self.homeNode)
+        node.layoutSpecBlock = { [weak self] (node, constrainedSize) in
+            return ASInsetLayoutSpec(insets: UIEdgeInsets.zero, child: self?.homeNode ?? ASDisplayNode())
         }
     }
     
